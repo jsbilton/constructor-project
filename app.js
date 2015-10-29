@@ -3,63 +3,79 @@ var opts = {
     health: 2000
   }
 
-  function Hero(options) {
+  function Character(options) {
     var options = options || {};
-    this.name = options.name || "";
+    this.name = options.name || "YMCA";
     this.health = options.health || 1000;
-    this.weapon = new Weapon({name: "bitch-slap", damage: 90});
-    this.equip = function (weapon) {
-      this.weapon = weapon;
+    this.Karate = new Karate({name: "bitch-slap", damage: 90});
+    this.equip = function (Karate) {
+      this.Karate = Karate;
+    }
     };
     this.attack = function (enemy) {
       var randomInt = Math.floor(Math.random() * 10);
       if(randomInt < 4) {
-        enemy.health = enemy.health - this.weapon.damage;
-        console.log("Direct hit " + enemy.name + ", your life is now at " + enemy.health);
+        enemy.health = enemy.health - this.Karate.damage;
+        console.log("Direct hit " + enemy.name + ", your energy level is now at " + enemy.health);
         if(enemy.health <= 0) {
           enemy.health = 0;
-          console.log("That was an epic blow, you are now dead " + enemy.name);
+          console.log("Looks like the new kid in town gotta piece of you huh " + enemy.name);
         }
 
     } else {
-      console.log("Fly like the wind, you've been lucky " + enemy.name);
+      console.log("I just wanna go home " + enemy.name + "I want my bike and I just wanna go home!");
     }
     };
 
   function CobraKai() {
-
+    var options = options || {};
+    this.name = options.name || "YMCA";
+    this.health = options.health || 1000;
+    this.Karate = new Karate({name: "bitch-slap", damage: 90});
+    this.equip = function (Karate) {
+      this.Karate = Karate;
     }
+    };
+    this.attack = function (enemy) {
+      var randomInt = Math.floor(Math.random() * 10);
+      if(randomInt < 4) {
+        enemy.health = enemy.health - this.Karate.damage;
+        console.log("Direct hit " + enemy.name + ", your energy level is now at " + enemy.health);
+        if(enemy.health <= 0) {
+          enemy.health = 1;
+          console.log("Your karate is a joke! I own you! You are now deceased " + enemy.name);
+        }
 
+    } else {
+      console.log("You're alright man, great match " + enemy.name);
+    }
+    };
 
-
-  }
-
-  function Weapon(options) {
+  function Karate(options) {
     this.name = options.name || "bitch-slap";
     this.damage = options.damage;
-
   }
 
 
 
-//      Hero         //
+//      Character         //
 
-var daniel = new Hero({health: 2000, name: "Daniel-Son"});
-var mrMiyagi = new Hero({health: 3000 , name: "Mr. Miyagi"});
+var daniel = new Character({health: 2000, name: "Daniel-Son"});
+var mrMiyagi = new Character({health: 3000 , name: "Mr. Miyagi"});
 
 
-//      Weapon        //
+//      Karate        //
 
-var waxOnWaxOff = new Weapon({damage: 130, name: "wax-on wax-off"});
-var paintTheFence = new Weapon({damage: 135, name: "paint the fence"});
-var paintTheHouse = new Weapon({damage: 145, name: "paint the house"});
-var crane = new Weapon({damage: 250, name: "crane technique"});
-var facePunch = new Weapon({damage: 150, name: "face punch"});
-var gutPunch = new Weapon({damage: 140, name: "gut punch"});
-var faceKick = new Weapon({damage: 150, name: "face kick"});
-var gutKick = new Weapon({damage: 145, name: "gut kick"});
-var roundhouse = new Weapon({damage: 200, name: "roundhouse"});
-var sweep = new Weapon({damage: 175, name: "sweep the leg"});
+var waxOnWaxOff = new Karate({damage: 130, name: "wax-on wax-off"});
+var paintTheFence = new Karate({damage: 135, name: "paint the fence"});
+var paintTheHouse = new Karate({damage: 145, name: "paint the house"});
+var crane = new Karate({damage: 250, name: "crane technique"});
+var facePunch = new Karate({damage: 150, name: "face punch"});
+var gutPunch = new Karate({damage: 140, name: "gut punch"});
+var faceKick = new Karate({damage: 150, name: "face kick"});
+var gutKick = new Karate({damage: 145, name: "gut kick"});
+var roundhouse = new Karate({damage: 200, name: "roundhouse"});
+var sweep = new Karate({damage: 175, name: "sweep the leg"});
 
 
 //     CobraKai      //
@@ -81,8 +97,8 @@ mrMiyagi.equip(roundhouse);
 johnny.equip(sweep);
 kresse.equip(facePunch);
 dutch.equip(faceKick);
-tommy.equip(waxOff);
+tommy.equip(waxOnWaxOff);
 bobby.equip(paintTheFence);
 mike.equip(gutPunch);
-terry.equip(waxOnWaxOff);
+terry.equip(gutKick);
 jerry.equip(paintTheHouse);
